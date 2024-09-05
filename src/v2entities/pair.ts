@@ -54,7 +54,7 @@ export class PairV2 {
     isV21: boolean,
     publicClient: PublicClient,
     chainId: ChainId
-  ): Promise<readonly LBPair[]> {
+  ): Promise<readonly LBPair[]|unknown> {
     const args = [
       getAddress(this.token0.address),
       getAddress(this.token1.address)
@@ -103,14 +103,14 @@ export class PairV2 {
         address: LB_FACTORY_V21_ADDRESS[chainId],
         functionName: 'getLBPairInformation',
         args
-      })
+      }) as LBPair
     } else {
       lbPair = await publicClient.readContract({
         abi: LBFactoryABI,
         address: LB_FACTORY_ADDRESS[chainId],
         functionName: 'getLBPairInformation',
         args
-      })
+      }) as LBPair
     }
 
     return lbPair

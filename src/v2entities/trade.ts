@@ -374,7 +374,7 @@ export class TradeV2 {
         allowFailure: true
       })
 
-      const trades = reads.map((read, i) => {
+      const trades = reads.map((read:any, i:number) => {
         if (read.status !== 'success') return undefined
         return new TradeV2(
           routes[i],
@@ -388,7 +388,7 @@ export class TradeV2 {
       })
 
       return trades.filter(
-        (trade) =>
+        (trade: any) =>
           !!trade && JSBI.greaterThan(trade.outputAmount.raw, JSBI.BigInt(0))
       )
     } catch (e) {

@@ -1,16 +1,16 @@
 {
-  "name": "@traderjoe-xyz/sdk-v2",
+  "name": "@david-lab/trader-joe-sdk-v2",
   "license": "MIT",
-  "version": "2.0.9",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/traderjoe-xyz/joe-sdk-v2",
+  "repository": "https://github.com/DavidSparker0417/joe-sdk-v2",
   "keywords": [
     "traderjoe-xyz",
-    "avalanche"
+    "sei"
   ],
   "module": "dist/sdk.esm.js",
   "scripts": {
