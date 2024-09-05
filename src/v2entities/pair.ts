@@ -204,6 +204,7 @@ export class PairV2 {
     publicClient: PublicClient
   ): Promise<LBPairReservesAndId> {
     if (isV21) {
+      // @ts-ignore
       const [reserveX, reserveY] = await publicClient.readContract({
         abi: LBPairV21ABI,
         address: LBPairAddr,
@@ -218,10 +219,12 @@ export class PairV2 {
       return {
         reserveX,
         reserveY,
+        // @ts-ignore
         activeId
       }
     }
 
+    // @ts-ignore
     const [reserveX, reserveY, activeId] = await publicClient.readContract({
       abi: LBPairABI,
       address: LBPairAddr,
@@ -246,6 +249,7 @@ export class PairV2 {
     LBPairAddr: Hex,
     publicClient: PublicClient
   ): Promise<LBPairFeeParameters> {
+    // @ts-ignore
     return publicClient.readContract({
       abi: LBPairABI,
       address: LBPairAddr,
